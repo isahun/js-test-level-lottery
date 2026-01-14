@@ -5,6 +5,6 @@ export function playLottery(userNum, numPC) {
         throw new Error("Has d'introduir un número de l'1 al 10");
     }
 
-    if (userNum !== numPC) return "Has perdut!:(";
-    if (userNum == numPC) return "Has guanyat!:D";
+    if (userNum !== numPC) return "Has perdut!";
+    if (userNum == numPC) return "Has guanyat!";
 }

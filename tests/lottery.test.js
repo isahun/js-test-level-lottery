@@ -1,6 +1,9 @@
 // Puedes confirgurar estos casos de test a la tecnología que más te guste, yo te propongo jest
 import { expect, describe, test } from "@jest/globals"; 
-const { playLottery } = require('../src/scripts/lottery.js')
+import { playLottery } from "../src/scripts/lottery.js";
+import { response } from "../src/scripts/events.js";
+import { printResult } from "../src/scripts/dom.js";
+
 
 describe('lottery feature tests', () => {
 
@@ -16,7 +19,7 @@ describe('lottery feature tests', () => {
         // Arrange
         let userInput = 7;
         let expected = {
-            message: "Has guanyat!:D", 
+            message: "Has guanyat!", 
             data: {
                 userNumber: userInput, 
   		        randomNumber: 7 
@@ -28,9 +31,9 @@ describe('lottery feature tests', () => {
     
         // Assert
         expect(typeof userInput).toBe("number");
-        expect(result).toEqual(expected);
+        expect(result).toBe(expected.message);
         expect(userInput).toEqual(expected.data.randomNumber);
-        expect(result).toBe("Has guanyat!:D");
+        expect(result).toBe("Has guanyat!");
     });
 
 
@@ -44,11 +47,21 @@ describe('lottery feature tests', () => {
          */
 
             // Arrange
-
+            let userInput = 7;
+            let expected = {
+                message: "Has perdut!", 
+                data: {
+                    userNumber: userInput, 
+                    randomNumber: 9 
+                }
+            }
             // Act
-    
+            let result = playLottery(userInput, 9); 
             // Assert
-    
+            expect(typeof userInput).toBe("number");
+            expect(result).toBe(expected.message);
+            expect(result).toBe("Has perdut!");
+
         })
 
         test('returns error when input is not a number', () => {
@@ -59,6 +72,18 @@ describe('lottery feature tests', () => {
              * When el usuario intenta procesar la jugada
              * Then se muestra un mensaje de error
              */
+            
+            // Arrange
+            let userInput = "hola";
+            let expected = "Has d'introduir un número de l'1 al 10";
+            
+            // Act
+            let result = playLottery(userInput, 9); 
+            // Assert
+            expect(typeof userInput).toBe("string");
+            expect(result).toBe(expected);
+            expect(result).toBe("Has d'introduir un número de l'1 al 10");
+
         })
 
         test('returns error when number is outside valid range', () => {
@@ -69,6 +94,18 @@ describe('lottery feature tests', () => {
              * When el sistema valida el número
              * Then se muestra un mensaje indicando que debe ser entre 1 y 10
              */
+
+              // Arrange
+            let userInput = 11;
+            let expected = "Has d'introduir un número de l'1 al 10";
+            
+            // Act
+            let result = playLottery(userInput, 9); 
+            // Assert
+            expect(typeof userInput).toBe("number");
+            expect(result).toBe(expected);
+            expect(result).toBe("Has d'introduir un número de l'1 al 10");
+
         })
     }
 )
