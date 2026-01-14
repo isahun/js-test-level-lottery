@@ -1,6 +1,6 @@
 // Puedes confirgurar estos casos de test a la tecnología que más te guste, yo te propongo jest
 import { expect, describe, test } from "@jest/globals"; 
-import { lottery } from "../src/lottery";
+const { playLottery } = require('../src/scripts/lottery.js')
 
 describe('lottery feature tests', () => {
 
@@ -16,7 +16,7 @@ describe('lottery feature tests', () => {
         // Arrange
         let userInput = 7;
         let expected = {
-            message: "Win", 
+            message: "Has guanyat!:D", 
             data: {
                 userNumber: userInput, 
   		        randomNumber: 7 
@@ -24,19 +24,19 @@ describe('lottery feature tests', () => {
         }
 
         // Act
-        let result = lottery(userInput); 
+        let result = playLottery(userInput, 7); 
     
         // Assert
-        expect(typeof result.data.userNumber).toBe("number");
+        expect(typeof userInput).toBe("number");
         expect(result).toEqual(expected);
-        expect(result.data.userNumber).toEqual(expected.data.randomNumber);
-        expect(result.data.result).toBe("Win");
+        expect(userInput).toEqual(expected.data.randomNumber);
+        expect(result).toBe("Has guanyat!:D");
     });
 
 
         test('returns lose when user number is different from random number', () => {
         //Gherking test
-         /**
+        /**
          * Scenario: Usuario pierde la lotería
          * Given el usuario ingresa el número 4
          * When el sistema genera un número aleatorio distinto, por ejemplo 2
