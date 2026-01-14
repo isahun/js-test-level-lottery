@@ -3,7 +3,7 @@ import { expect, describe, test } from "@jest/globals";
 import { lottery } from "../src/lottery";
 
 describe('lottery feature tests', () => {
-       
+
         test('returns win when user number equals random number', () => {
         //Gherking test
          /**

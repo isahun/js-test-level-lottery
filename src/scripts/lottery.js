@@ -6,5 +6,5 @@ export function playLottery(userNum, numPC) {
     }
 
     if (userNum !== numPC) return "Has perdut!:(";
-    if (userNum === numPC) return "Has guanyat!:D";
+    if (userNum == numPC) return "Has guanyat!:D";
 }

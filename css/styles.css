@@ -1,0 +1,48 @@
+/*Reset*/
+
+* { /* el selector de tot */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------Global styles-------- */
+
+:root {
+    font-family: Verdana, sans-serif;
+    color: #171616;
+}
+
+body {
+    background-color: #ffffff;
+    line-height: 1.5;
+    margin: 5rem 5rem 5rem 5rem;
+}
+
+h1, p {
+    text-align: center;
+}
+
+p {
+    padding: 0 10rem;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+input, button {
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+input {
+    margin-bottom: 6px;
+}
+
+#result {
+    margin-top: 10px;
+}

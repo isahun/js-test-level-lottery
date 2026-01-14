@@ -1,5 +1,5 @@
-import { playLottery } from "./lottery";
-import { printResult } from "./dom";
+import { playLottery } from "./lottery.js";
+import { printResult } from "./dom.js";
 
 export const button = document.getElementById("button");
 export const input = document.getElementById("userNum");
@@ -27,4 +27,6 @@ button.addEventListener("click", () => {
             data: null
         }
     }
+
+    printResult(response);
 });
