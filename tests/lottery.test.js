@@ -25,7 +25,7 @@ describe('lottery feature tests', () => {
         }
 
         // Act
-        let result = playLottery(userInput, expected.randomNumber); 
+        let result = playLottery(userInput, expected.data.randomNumber); 
     
         // Assert
         expect(typeof userInput).toBe("number");
@@ -99,7 +99,7 @@ describe('lottery feature tests', () => {
             // Act
             let result = playLottery(userInput, 9); 
             // Assert
-            expect(typeof userInput).toBe("number");
+            expect(typeof userInput).toBe("NaN");
             expect(result).toBe(expected);
             expect(result).toBe("Has d'introduir un número de l'1 al 10");
 

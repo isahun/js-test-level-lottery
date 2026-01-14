@@ -1,7 +1,7 @@
 // Lógica de la UI
 
 export function playLottery(userNum, numPC) {
-    if (typeof userNum !== "number" || userNum == "" || userNum > 10 || userNum <= 0) {
+    if (typeof userNum !== "number" || isNaN(userNum) || userNum == "" || userNum > 10 || userNum <= 0) {
         throw new Error("Has d'introduir un número de l'1 al 10");
     }
 
